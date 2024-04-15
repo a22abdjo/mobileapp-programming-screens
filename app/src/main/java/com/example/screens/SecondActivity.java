@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -15,8 +16,12 @@ public class SecondActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             String name = extras.getString("name");
-            int number = extras.getInt("number");
             // Do something with the name and number
+
+            TextView details = findViewById(R.id.details);
+            details.setText(name);
+
+
 
         }
     }
