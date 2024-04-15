@@ -21,16 +21,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d("==>", "We clicked on Kyckling!");
-
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 intent.putExtra("name", "Smak"); // Optional
-                intent.putExtra("number", 1); // Optional
                 startActivity(intent);
             }
 
         });
-
-
 
     }
 }

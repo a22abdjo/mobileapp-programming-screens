@@ -1,39 +1,36 @@
 
 # Rapport
 
-**Skriv din rapport här!**
-
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+**Först skapades en second activity(SecondActivity) detta är vart datan skickas till. Sedan skapades en knapp som skall ta oss från MainActivity till SecondActivity. Därefter lades till data inom intent bundle genom att använda mig av extras, där en intent har skapats för att visa vart datan kommer ifrån och går till. Under den så har jag skapat namnet smak som skall skickas till secondActivity när en trycker på min button. Dessutom så har det skapats en tillbaka knapp genom att lägga till (android:parentActivityName = ".MainActivity"). Nedan finns kod snuttar på Main och Secondary sidan som visar hur datan skickas från en sida till en annan samt hur den datan visas på den mottagande sidan.**
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
+//MainActivity
+ but.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("==>", "We clicked on Kyckling!");
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("name", "Smak"); // Optional
+                startActivity(intent);
+            }
+
+        });
+
+//SecondACtivity
+  Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String name = extras.getString("name");
+            // Do something with the name and number
+
+            TextView details = findViewById(R.id.details);
+            details.setText(name);
+
+        }
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
+![img.png](img.png), ![img_1.png](img_1.png)
 
 Läs gärna:
 

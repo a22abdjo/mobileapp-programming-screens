@@ -21,8 +21,6 @@ public class SecondActivity extends AppCompatActivity {
             TextView details = findViewById(R.id.details);
             details.setText(name);
 
-
-
         }
     }
 }
